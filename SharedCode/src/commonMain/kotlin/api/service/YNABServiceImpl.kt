@@ -1,6 +1,5 @@
 package com.farsidelabs.pacingforynab.api.service
 
-import com.farsidelabs.pacingforynab.api.service.YNABService
 import com.farsidelabs.pacingforynab.api.base.Response
 import com.farsidelabs.pacingforynab.api.entities.budget.BudgetEntity
 import com.farsidelabs.pacingforynab.api.entities.budget.BudgetsResponseEntity
