@@ -1,0 +1,5 @@
+rootProject.name='Pacing for YNAB'
+include ':app'
+include ':SharedCode'
+
+enableFeaturePreview('GRADLE_METADATA')
