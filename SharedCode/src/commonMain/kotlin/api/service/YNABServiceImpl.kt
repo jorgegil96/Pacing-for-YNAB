@@ -28,20 +28,20 @@ class YNABServiceImpl : YNABService {
     }
 
     override suspend fun listBudgets(): Response<List<BudgetEntity>> {
-        return boxedRequest(httpClient.get<BudgetsResponseEntity> {
-            apiUrl(path = "budgets")
-        }.data.budgets)
+        return try {
+            Response.Success(httpClient.get<BudgetsResponseEntity> {
+                apiUrl(path = "budgets")
+            }.data.budgets)
+        } catch (e: Exception) {
+            Response.Error(e)
+        }
     }
 
     override suspend fun getUser(): Response<UserEntity> {
-        return boxedRequest(httpClient.get<UserResponseEntity> {
-            apiUrl(path = "user")
-        }.data.user)
-    }
-
-    private fun <T> boxedRequest(request: T): Response<T> {
         return try {
-            Response.Success(request)
+            Response.Success(httpClient.get<UserResponseEntity> {
+                apiUrl(path = "user")
+            }.data.user)
         } catch (e: Exception) {
             Response.Error(e)
         }
